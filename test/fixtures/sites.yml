@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  capacity: 1
+  transport_charges_first_km: 1
+  transport_charges_nexts_km: MyString
+  excavation: 1
+
+two:
+  name: MyString
+  capacity: 1
+  transport_charges_first_km: 1
+  transport_charges_nexts_km: MyString
+  excavation: 1
