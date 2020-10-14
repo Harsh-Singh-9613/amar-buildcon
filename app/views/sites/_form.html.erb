@@ -1,0 +1,52 @@
+<%= form_for @site, :html => { :class => "form-horizontal professor" } do |f| %>
+
+  <%#= render "shared/error",object: @professor%>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :default_truck_capacity, "Capacity(Cubic quantity)", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :default_truck_capacity, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:default_truck_capacity) %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :lnt_basic_charge, "First KiloMeter Charge", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :lnt_basic_charge, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:lnt_basic_charge) %>
+  </div>  
+
+  <div class="form-group">
+    <%= f.label :lnt_leading_charge, "More than 1 KiloMeter Charge", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :lnt_leading_charge, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:lnt_leading_charge) %>
+  </div> 
+
+  <div class="form-group">
+    <%= f.label :excavation_charges, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :excavation_charges, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:excavation_charges) %>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                sites_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

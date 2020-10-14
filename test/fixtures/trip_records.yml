@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-10-11
+  trip: 1
+  lead_in_km: 1
+  total_trip_amount: 1
+  diesel_quatity: 1
+  diesel_price: 1
+  total_diesel_price: 1
+  amount_left: 1
+  chainage: MyString
+  capacity: 1
+  transport_charges_first_km: 1
+  transport_charges_nexts_km: 1
+  loading_rate: 1
+
+two:
+  date: 2020-10-11
+  trip: 1
+  lead_in_km: 1
+  total_trip_amount: 1
+  diesel_quatity: 1
+  diesel_price: 1
+  total_diesel_price: 1
+  amount_left: 1
+  chainage: MyString
+  capacity: 1
+  transport_charges_first_km: 1
+  transport_charges_nexts_km: 1
+  loading_rate: 1

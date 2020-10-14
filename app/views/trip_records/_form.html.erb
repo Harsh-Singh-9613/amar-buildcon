@@ -1,0 +1,68 @@
+<%= form_for [@site, @trip_record], :html => { :class => "form-horizontal professor" } do |f| %>
+
+  <%= f.hidden_field :site_id, :value => @site.id %>
+  <div class="form-group">
+    <%= f.label :date, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.date_field :trip_date, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:trip_date) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :trip_count, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :trip_count, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:trip_count) %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :distance, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :distance, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:distance) %>
+  </div>  
+
+  <div class="form-group">
+    <%= f.label :truck_capacity, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :truck_capacity, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:truck_capacity) %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :diesel_quatity, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :diesel_quatity, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:diesel_quatity) %>
+  </div> 
+
+  <div class="form-group">
+    <%= f.label :diesel_price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :diesel_price, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:diesel_price) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :chainage, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :chainage, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:chainage) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                site_trip_records_path(params[:site_id]), :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

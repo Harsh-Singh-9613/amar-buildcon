@@ -2,10 +2,10 @@ class CreateSites < ActiveRecord::Migration[6.0]
   def change
     create_table :sites do |t|
       t.string :name
-      t.integer :capacity
-      t.integer :transport_charges_first_km
-      t.string :transport_charges_nexts_km
-      t.integer :excavation
+      t.integer :default_truck_capacity
+      t.integer :lnt_basic_charge
+      t.string :lnt_leading_charge
+      t.integer :excavation_charges
 
       t.timestamps null: false
     end

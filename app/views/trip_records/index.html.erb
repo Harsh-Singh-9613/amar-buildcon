@@ -1,0 +1,57 @@
+<%- model_class = TripRecord -%>
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_site_trip_record_path(site_id: @site.id),
+              :class => 'btn btn-primary' %>
+  </div>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th><%= model_class.human_attribute_name(:trip_date) %></th>
+        <th><%= model_class.human_attribute_name(:trip_count) %></th>
+        <th><%= model_class.human_attribute_name(:capacity_per_cubic) %></th>
+        <th><%= model_class.human_attribute_name(:distance) %></th>
+        <th><%= model_class.human_attribute_name(:revenue) %></th>
+        <th><%= model_class.human_attribute_name(:diesel_quatity) %></th>
+        <th><%= model_class.human_attribute_name(:diesel_price) %></th>
+        <th><%= model_class.human_attribute_name(:total_diesel_price) %></th>
+        <th><%= model_class.human_attribute_name(:amount_left) %></th>
+        <th><%= model_class.human_attribute_name(:chainage) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th> 
+      </tr>
+    </thead>
+    <tbody>
+      <% @trip_records.each do |trip_record| %>
+        <tr>
+
+          <td><%= trip_record.trip_date %></td>
+          <td><%= trip_record.trip_count %></td>
+          <td><%= trip_record.truck_capacity %></td>
+          <td><%= trip_record.distance %></td>
+          <td><%= trip_record.revenue %></td>
+          <td><%= trip_record.diesel_quatity %></td>
+          <td><%= trip_record.diesel_price %></td>
+          <td><%= calculate_diesel_price(trip_record.diesel_quatity, trip_record.diesel_price) %></td>
+          <td><%= calculate_amount_left(trip_record.revenue, calculate_diesel_price(trip_record.diesel_quatity, trip_record.diesel_price)) %></td>
+          <td><%= trip_record.chainage %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),edit_site_trip_record_path(trip_record.site, trip_record), :class => 'btn btn-default btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        site_trip_record_path(trip_record.site, trip_record),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-xs btn-danger' %>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
