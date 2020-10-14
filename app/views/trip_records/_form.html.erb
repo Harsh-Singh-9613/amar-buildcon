@@ -1,6 +1,7 @@
 <%= form_for [@site, @trip_record], :html => { :class => "form-horizontal professor" } do |f| %>
 
   <%= f.hidden_field :site_id, :value => @site.id %>
+  <%= f.hidden_field :site_truck_capacity, :value => @site.default_truck_capacity, :class => "truck-capacity"%>
   <div class="form-group">
     <%= f.label :date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -27,7 +28,7 @@
   <div class="form-group">
     <%= f.label :truck_capacity, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.number_field :truck_capacity, :class => 'form-control' %>
+      <%= f.number_field :truck_capacity, :class => 'form-control truck_capacity' %>
     </div>
     <%=f.error_span(:truck_capacity) %>
   </div>
