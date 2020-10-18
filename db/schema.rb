@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_095805) do
+ActiveRecord::Schema.define(version: 2020_10_18_094023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_095805) do
     t.bigint "site_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "excavation_done", default: true
+    t.boolean "loading_and_trasportaion_done", default: true
     t.index ["site_id"], name: "index_trip_records_on_site_id"
   end
 

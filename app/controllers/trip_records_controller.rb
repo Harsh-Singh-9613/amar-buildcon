@@ -51,6 +51,6 @@ class TripRecordsController < ApplicationController
     end
    
     def trip_record_params
-      params.require(:trip_record).permit(:trip_date, :trip_count, :distance, :revenue, :truck_capacity, :diesel_price, :diesel_quatity, :chainage, :site_id) 
+      params.require(:trip_record).permit(:trip_date, :trip_count, :distance, :revenue, :truck_capacity, :diesel_price, :diesel_quatity, :chainage, :site_id, :excavation_done, :loading_and_trasportaion_done) 
     end
 end

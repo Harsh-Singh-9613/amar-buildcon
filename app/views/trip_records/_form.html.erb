@@ -59,6 +59,22 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :excavation_done, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.check_box :excavation_done, {class: 'mb-2 is_correct check_box'} %>
+    </div>
+    <%=f.error_span(:excavation_done) %>
+    
+    <%= f.label :loading_and_trasportaion_done, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.check_box :loading_and_trasportaion_done, {class: 'mb-2 is_correct check_box'} %>
+    </div>
+    <%=f.error_span(:loading_and_trasportaion_done) %>
+  </div>
+
+  
+
+  <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
