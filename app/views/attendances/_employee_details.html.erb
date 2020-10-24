@@ -1,0 +1,9 @@
+
+<td><%= link_to employee.name.titleize, employee_path(employee) %></td>
+<td>
+  <% if check_employee_attendance_for_today(employee) != nil && check_employee_attendance_for_today(employee).status === "present"%>
+    <%= link_to "Absent", mark_attendance_employee_path(employee, status: 'Absent'), remote: true, :class => 'btn btn-danger btn-xs', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))} %>
+  <% else %>
+    <%= link_to "Present", mark_attendance_employee_path(employee, status: 'Present'), remote: true, :class => 'btn btn-success btn-xs' %>
+  <% end %>
+</td>

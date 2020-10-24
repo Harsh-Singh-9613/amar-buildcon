@@ -13,15 +13,8 @@
     </thead>
     <tbody>
       <% @employees.each do |employee| %>
-        <tr>
-          <td><%= link_to employee.name.titleize, employee_path(employee) %></td>
-          <td>
-            <% if check_employee_attendance_for_today(employee).present? %>
-              <%= link_to "Absent", mark_attendance_employee_path(employee), :class => 'btn btn-danger btn-xs', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))} %>
-            <% else %>
-              <%= link_to "Present", mark_attendance_employee_path(employee), :class => 'btn btn-success btn-xs' %>
-            <% end %>
-          </td>
+        <tr id="<%= employee.id %>">
+          <%= render "attendances/employee_details", employee: employee %>
         </tr>
       <% end %>
     </tbody>

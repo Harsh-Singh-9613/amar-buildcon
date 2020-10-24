@@ -1,7 +1,14 @@
 class EmployeesController < ApplicationController
-  before_action :find_employee, only:[:edit, :update, :destroy]
+  include AttendancesHelper
+  before_action :find_employee, only:[:edit, :update, :destroy, :mark_attendance]
 
   def mark_attendance
+    @attendance_record = check_employee_attendance_for_today(@employee)
+    if @attendance_record != nil
+      @attendance_record.update(status: params[:status])
+    else
+      @employee.attendances.create!(date: Date.current, status: params[:status])
+    end
   end
   
   def index
