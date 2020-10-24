@@ -9,8 +9,12 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Sites", sites_path %></li>
-        <li><%#= link_to "Trip Record", trip_records_path %></li>
+        <% if current_user %>
+          <li><%= link_to "Sites", sites_path %></li>
+          <li><%= link_to "Employees", employees_path %></li>
+          <li><%= link_to "Mark Attendance", attendances_path %></li>
+          <li><%#= link_to "Trip Record", trip_records_path %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>

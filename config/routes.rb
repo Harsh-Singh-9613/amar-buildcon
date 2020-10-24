@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   resources :sites do 
     resources :trip_records
   end
+
+  resources :employees do
+    member do
+      get 'mark_attendance'
+    end
+  end
+  resources :attendances, only: [:index]
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
