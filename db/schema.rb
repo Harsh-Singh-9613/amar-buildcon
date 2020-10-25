@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_111240) do
+ActiveRecord::Schema.define(version: 2020_10_25_112524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2020_10_25_111240) do
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
-    t.integer "license_number"
-    t.integer "adhaar_number"
-    t.integer "mobile_number"
+    t.string "license_number"
+    t.string "adhaar_number"
+    t.string "mobile_number"
     t.integer "salary"
     t.string "designation"
     t.boolean "is_working"
