@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_112524) do
     t.integer "salary"
     t.string "designation"
     t.boolean "is_working"
+    t.bigint "site_id"
+    t.index ["site_id"], name: "index_employees_on_site_id"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -84,4 +86,5 @@ ActiveRecord::Schema.define(version: 2020_10_25_112524) do
 
   add_foreign_key "attendances", "employees"
   add_foreign_key "employee_payment_records", "employees"
+  add_foreign_key "employees", "sites"
 end
