@@ -1,0 +1,28 @@
+<%- model_class = Site -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @site.name %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:capacity_cubic_quantity) %>:</strong></dt>
+  <dd><%= @site.default_truck_capacity %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:first_kilometer_charge) %>:</strong></dt>
+  <dd><%= @site.lnt_basic_charge %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:more_than_1_km_charge) %>:</strong></dt>
+  <dd><%= @site.lnt_leading_charge %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:excavation_charges) %>:</strong></dt>
+  <dd><%= @site.excavation_charges %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              sites_path, :class => 'btn btn-primary'  %>
+
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_site_path(@site), :class => 'btn btn-primary' %>
+
+<%= link_to "Check Employees", employees_path(site_id: @site), :class => 'btn btn-primary' %>
+
+<%= link_to "Check Trip Records", site_trip_records_path(site_id: @site), :class => 'btn btn-primary' %>

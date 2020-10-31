@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
 
-  before_action :find_site, only:[:edit, :update, :destroy]
+  before_action :find_site, only:[:edit, :update, :destroy, :show]
   
   def index
      @sites = Site.all
@@ -18,6 +18,9 @@ class SitesController < ApplicationController
     else
       render :new
     end   
+  end
+
+  def show
   end
   
   def edit
