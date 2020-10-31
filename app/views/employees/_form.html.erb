@@ -48,6 +48,14 @@
     </div>
     <%=f.error_span(:designation) %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :select_site, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select "site_id", options_for_select(@sites.map{ |site| [site.name, site.id ]}, f.object.site_id), { prompt: 'Choose Site'} , class: 'form-control' %>
+    </div>
+    <%=f.error_span(:site_id) %>
+  </div>
   
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
