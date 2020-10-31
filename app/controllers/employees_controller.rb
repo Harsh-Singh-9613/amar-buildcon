@@ -43,7 +43,6 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    binding.pry
     if @employee.update(employee_params)
       flash[:notice] = "Employee Successfully Updated"
       redirect_to employees_path
@@ -52,11 +51,11 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def destroy
-    @employee.destroy
-    flash[:alert] = "Employee Deleted Successfully "
-    redirect_to employees_path
-  end
+  # def destroy
+  #   @employee.destroy
+  #   flash[:alert] = "Employee Deleted Successfully "
+  #   redirect_to employees_path
+  # end
 
   private
 

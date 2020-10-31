@@ -38,11 +38,11 @@ class TripRecordsController < ApplicationController
     end
   end
 
-  def destroy
-    @trip_record.destroy
-    flash[:alert] = "Trip Record Deleted Successfully "
-    redirect_to site_trip_records_path(params[:site_id])
-  end
+  # def destroy
+  #   @trip_record.destroy
+  #   flash[:alert] = "Trip Record Deleted Successfully "
+  #   redirect_to site_trip_records_path(params[:site_id])
+  # end
 
   private
 

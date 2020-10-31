@@ -32,11 +32,11 @@ class SitesController < ApplicationController
     end
   end
 
-  def destroy
-    @site.destroy
-    flash[:alert] = "Site Deleted Successfully "
-    redirect_to sites_path
-  end
+  # def destroy
+  #   @site.destroy
+  #   flash[:alert] = "Site Deleted Successfully "
+  #   redirect_to sites_path
+  # end
 
   private
 
