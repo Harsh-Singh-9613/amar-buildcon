@@ -23,6 +23,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'pry'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
