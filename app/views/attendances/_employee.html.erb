@@ -1,4 +1,3 @@
-
 <td><%= link_to employee.name.titleize, employee_path(employee) %></td>
 <% if check_employee_attendance_for_today(employee) %>
   <td><%= check_employee_attendance_for_today(employee).status %></td>

@@ -1,6 +1,7 @@
 <%- model_class = Attendance -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <div class="pull-right col-md-3"><%= select_tag "site_id", options_for_select(@sites.map{ |site| [site.name, site.id ] }), { prompt: 'Choose Site', class: 'form-control', id: "site_id" } %></div>
 </div>
 <div class="table-responsive">
   <table class="table table-striped">
@@ -12,12 +13,8 @@
         <th><%=t '.actions', :default => t("helpers.actions") %></th> 
       </tr>
     </thead>
-    <tbody>
-      <% @employees.each do |employee| %>
-        <tr id="<%= employee.id %>">
-          <%= render "attendances/employee_details", employee: employee %>
-        </tr>
-      <% end %>
+    <tbody class="employees">
+      <%= render "employees", employee: @employees %>
     </tbody>
   </table>
 </div>

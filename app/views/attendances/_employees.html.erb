@@ -1,0 +1,5 @@
+<% @employees.each do |employee| %>
+  <tr id="<%= employee.id %>">
+    <%= render "attendances/employee", employee: employee %>
+  </tr>
+<% end %>
