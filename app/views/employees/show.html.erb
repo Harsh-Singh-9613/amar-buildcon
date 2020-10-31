@@ -17,8 +17,13 @@
   <dd><%= @employee.designation %></dd>
   <dt><strong><%= model_class.human_attribute_name(:is_working) %>:</strong></dt>
   <dd><%= @employee.is_working %></dd>
-
 </dl>
+
+<div class="pull-right">
+  <%= link_to "Check Payment Records",
+             employee_payment_records_path(@employee),
+            :class => 'btn btn-primary' %>
+</div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               employees_path, :class => 'btn btn-default'  %>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :employees do
+    resources :payment_records
     member do
       get 'mark_attendance'
     end
