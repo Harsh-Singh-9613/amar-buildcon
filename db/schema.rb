@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_061329) do
+ActiveRecord::Schema.define(version: 2020_11_03_070400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 2020_11_03_061329) do
     t.boolean "is_working"
     t.bigint "site_id"
     t.index ["site_id"], name: "index_employees_on_site_id"
+  end
+
+  create_table "owner_expenses", force: :cascade do |t|
+    t.date "date"
+    t.bigint "amount"
+    t.string "description"
+    t.bigint "owner_id", null: false
+    t.bigint "site_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_owner_expenses_on_owner_id"
+    t.index ["site_id"], name: "index_owner_expenses_on_site_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -95,4 +107,6 @@ ActiveRecord::Schema.define(version: 2020_11_03_061329) do
   add_foreign_key "attendances", "employees"
   add_foreign_key "employee_payment_records", "employees"
   add_foreign_key "employees", "sites"
+  add_foreign_key "owner_expenses", "owners"
+  add_foreign_key "owner_expenses", "sites"
 end
