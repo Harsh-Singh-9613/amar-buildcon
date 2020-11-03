@@ -10,6 +10,15 @@ class EmployeesController < ApplicationController
       @employee.attendances.create!(date: Date.current, status: params[:status])
     end
   end
+
+  def calculate_salary
+    @employee = Employee.find(params[:id])
+    unless params[:start_date].nil? && params[:end_date].nil?
+      @present_attendacne = @employee.count_present_attendance(params[:start_date], params[:end_date] ) 
+      @payment_given = @employee.calculate_payment_given(params[:start_date], params[:end_date] )
+      @remaning_salary = ((@employee.salary / 30)  * @present_attendacne ) - @payment_given
+    end
+  end
   
   def index
     @sites = Site.all

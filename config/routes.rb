@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :payment_records
     member do
       get 'mark_attendance'
+      get 'calculate_salary'
     end
   end
   resources :attendances, only: [:index]

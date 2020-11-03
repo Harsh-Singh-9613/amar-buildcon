@@ -1,0 +1,22 @@
+<%= form_tag(calculate_salary_employee_path, method: :get, remote: true,  class: "salary-caluclate-form", multipart: true) do %>
+
+  <%= hidden_field_tag 'employee_id', @employee.id  %>
+  <div class="form-group">
+    <%= label_tag :start_date, "Start Date", :class => 'control-label col-lg-1' %>
+    <%= date_field_tag :start_date, '', class: 'col-lg-3 start-date'%>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :end_date, "End Date", :class => 'control-label col-lg-1' %>
+    <%= date_field_tag :end_date, '', class: 'col-lg-3 end-date' %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-4">
+      <%= submit_tag "Submit",  :class => 'btn btn-primary salary-submit' %>
+    </div>
+  </div>
+<% end %>
+
+<div class="employee-salary-calculate">
+</div>
