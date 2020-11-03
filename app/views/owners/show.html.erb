@@ -1,0 +1,20 @@
+<%- model_class = Owner -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @owner.name %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
+  <dd><%= @owner.mobile_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:balance) %>:</strong></dt>
+  <dd><%= @owner.balance %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              owners_path, :class => 'btn btn-primary'  %>
+
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_owner_path(@owner), :class => 'btn btn-primary' %>

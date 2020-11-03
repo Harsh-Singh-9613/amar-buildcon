@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get 'calculate_salary'
     end
   end
+  resources :owners
   resources :attendances, only: [:index]
   
   # Example of regular route:
